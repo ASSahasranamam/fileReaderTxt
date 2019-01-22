@@ -1,0 +1,7 @@
+text First_name
+text Last_name
+number Age
+text Address
+number pinCode
+text subramanian
+text adithya
