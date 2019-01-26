@@ -1,5 +1,11 @@
 # TextFormBuilder
 
+Dexie is an indexed DB.
+Look at dexie-test.component For the code.
+
+Manipulation is done on App.component
+
+#Install Instructions Below
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
 ## Development server
