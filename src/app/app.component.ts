@@ -28,13 +28,11 @@ formSpecifications= []
 
 ngOnInit(){
 
-  this.db.friends.add({name: "Josephine", age: 21}).then(()=>{
-      return this.db.friends.where("age").below(25).toArray();
-  }).then(youngFriends => {
-      alert ("My young friends: " + JSON.stringify(youngFriends));
-  }).catch(e => {
-      alert("error: " + e.stack || e);
-  });
+  let reqObj = {
+    'userId': '1203'
+  };
+
+
 
 
 
@@ -57,6 +55,49 @@ ngOnInit(){
 
     }
    )
+
+   let url = "https://dev2.interwork.io/highMessage/listForMeetings"
+   return this.http.post(url, reqObj).subscribe(
+     res => { console.log(res)
+       alert(typeof res)
+
+
+       var meetingsArray = Object.keys(res).map(function(personNamedIndex){
+         let person = res[personNamedIndex];
+         // do something with person
+         return person;
+       });
+
+
+       for (let obj of meetingsArray){
+         alert((res[0]))
+         alert(obj)
+                  this.db.friends.add(({name: obj.title, age: 21,
+                    meetingId: obj.meeting_id,
+                    status: obj.status,
+                    mid: obj.id,
+                    title: obj.status,
+                    updatedBy: obj.updatedBy,
+                    updatedDate: obj.updatedDate,
+                    createdBy: obj.createdBy,
+                    startDate: obj.plannedStartDate,
+                    endDate: obj.plannedEndDate,
+                    parentId: obj.parentID
+                  })).then(()=>{
+             return this.db.friends.where("age").below(25).toArray();
+         }).then(youngFriends => {
+             alert ("My young friends: " + JSON.stringify(youngFriends));
+         }).catch(e => {
+             alert("error: " + e.stack || e);
+         });
+
+       }
+
+
+
+     });
+
+
 
 }
 

@@ -34,4 +34,15 @@ export interface IFriend {
     id?: number;
     name?: string;
     age?: number;
+    mid: string;
+    meetingId: String;
+    status: String;
+    title: String;
+    updatedBy: String;
+    updatedDate: String;
+    createdBy: String;
+    startDate: String;
+    endDate:String;
+    parentId: String;
+
 }
